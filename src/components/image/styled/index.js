@@ -16,19 +16,27 @@ const getFullscreen = ({ fullscreen }) => {
   if (fullscreen) {
     return css`
       animation: none;
-      object-fit: contain;
       height: 100vmin;
+      &:hover {
+        cursor: zoom-out;
+      }
     `
   }
   return null
 }
 
 const StyledImage = styled.img`
+  &:hover {
+    cursor: zoom-in;
+  }
+
+  object-fit: contain;
   position: relative;
   height: 40vmin;
-  animation: ${appLogoBounce} infinite 4s ease-in-out;
+  max-width: 100%;
+  animation: ${appLogoBounce} infinite 4s ease;
   ${getFullscreen};
-  transition: 0.4s ease-in-out;
+  transition: 0.4s ease;
 `
 
 export default StyledImage
